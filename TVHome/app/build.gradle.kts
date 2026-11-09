@@ -15,10 +15,22 @@ android {
         versionName = "2.0"
     }
 
+    // one fixed key, so APKs built on GitHub install over each other
+    signingConfigs {
+        create("tvhome") {
+            storeFile = file("tvhome.keystore")
+            storePassword = "tvhome123"
+            keyAlias = "tvhome"
+            keyPassword = "tvhome123"
+        }
+    }
     buildTypes {
+        debug {
+            signingConfig = signingConfigs.getByName("tvhome")
+        }
         release {
             isMinifyEnabled = false
-            signingConfig = signingConfigs.getByName("debug")
+            signingConfig = signingConfigs.getByName("tvhome")
         }
     }
     compileOptions {
