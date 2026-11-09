@@ -359,6 +359,8 @@ html[data-theme="dark"],html[data-theme="type"]{--gbg:#0b0c10;--gpanel:rgba(255,
 html.vid,html.vid body,html.vid #stage{background:transparent!important}
 html.vid:not(.native){background:#000!important}
 html.vid #stage>header,html.vid #rowWrap,html.vid #dock,html.vid #ambient,html.vid #lstrip,html.vid #hint,html.vid #lib,html.vid #wr,html.vid #typo{visibility:hidden}
+/* belt and braces: some Fire TV WebViews keep painting a hidden scrolled page, so take it out of the picture entirely */
+html.vid #lib,html.vid #wr,html.vid #typo{opacity:0!important;transform:translateX(-4000px)}
 html.full .layer:not(.player){display:none!important}
 #h5v{position:fixed;left:0;top:0;width:100vw;height:100vh;background:#000;display:none;z-index:-1;object-fit:contain}
 .spin{width:54px;height:54px;border-radius:50%;border:5px solid rgba(255,255,255,.25);border-top-color:#fff;animation:spin .8s linear infinite}
@@ -712,7 +714,7 @@ html.playing #gHole .pv{display:none}
   <!-- Settings -->
   <div class="layer" id="settings">
     <div class="sheet" data-scroll data-pad="120">
-      <h2>Settings</h2>
+      <h2>Settings <small style="font-size:20px;font-weight:500;color:var(--muted)">TV Home v26</small></h2>
       <h3>Jellyfin server</h3>
       <label class="f">Server address</label>
       <input class="in" data-f id="sServer" placeholder="http://192.168.1.20:8096" inputmode="url">
@@ -1095,7 +1097,9 @@ const P=(function(){
   };
 })();
 /* '' = home screen, 'vid' = page transparent so video shows through (guide preview), 'full' = full-screen player */
-function vmode(m){const c=document.documentElement.classList;c.toggle('vid',m==='vid'||m==='full');c.toggle('full',m==='full')}
+function vmode(m){const c=document.documentElement.classList,on=m==='vid'||m==='full';c.toggle('vid',on);c.toggle('full',m==='full');
+  /* force the library/wrestling pages off the screen while video plays (and back afterwards) */
+  for(const id of ['lib','wr','typo']){const el=document.getElementById(id);if(el)el.style.opacity=on?'0':''}}
 
 /* ---------- toast ---------- */
 let tt;function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),2600)}

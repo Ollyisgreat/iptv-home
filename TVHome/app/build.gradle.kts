@@ -11,8 +11,8 @@ android {
         applicationId = "com.tvhome.launcher"
         minSdk = 22          // Fire OS 5 and newer
         targetSdk = 34
-        versionCode = 2
-        versionName = "2.0"
+        versionCode = 26
+        versionName = "26"
     }
 
     // one fixed key, so APKs built on GitHub install over each other
