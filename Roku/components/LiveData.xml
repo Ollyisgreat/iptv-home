@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- holds the whole IPTV channel list once, so screens only copy what they show -->
+<component name="LiveData" extends="Node">
+  <interface>
+    <field id="state" type="string" value="idle" alwaysNotify="true"/>
+    <field id="err" type="string"/>
+    <function name="load"/>
+    <function name="cats"/>
+    <function name="list"/>
+    <function name="search"/>
+    <function name="byId"/>
+    <function name="alts"/>
+    <function name="catName"/>
+  </interface>
+  <script type="text/brightscript" uri="pkg:/components/common.brs"/>
+  <script type="text/brightscript" uri="pkg:/components/LiveData.brs"/>
+</component>

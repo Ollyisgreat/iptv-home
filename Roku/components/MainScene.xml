@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component name="MainScene" extends="Scene">
+  <interface>
+    <function name="push"/>
+    <function name="pop"/>
+    <function name="toast"/>
+    <function name="ambient"/>
+    <function name="headerDown"/>
+    <function name="jfSwitched"/>
+    <function name="openTab"/>
+    <function name="counts"/>
+  </interface>
+  <script type="text/brightscript" uri="pkg:/components/common.brs"/>
+  <script type="text/brightscript" uri="pkg:/components/MainScene.brs"/>
+</component>

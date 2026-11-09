@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component name="SideMenu" extends="Group">
+  <interface>
+    <field id="chosen" type="integer" value="-1" alwaysNotify="true"/>
+    <function name="open"/>
+    <function name="onReturn"/>
+  </interface>
+  <script type="text/brightscript" uri="pkg:/components/common.brs"/>
+  <script type="text/brightscript" uri="pkg:/components/SideMenu.brs"/>
+</component>

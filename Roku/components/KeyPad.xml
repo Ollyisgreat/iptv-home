@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- search box + on-screen letters; results narrow with every key -->
+<component name="KeyPad" extends="Group">
+  <interface>
+    <field id="text" type="string" alwaysNotify="true"/>
+    <field id="hint" type="string" value="Search" onChange="onHint"/>
+    <field id="width" type="integer" value="440" onChange="build"/>
+    <field id="dark" type="boolean" value="false" onChange="build"/>
+    <function name="setup"/>
+    <function name="takeFocus"/>
+    <function name="wipe"/>
+  </interface>
+  <script type="text/brightscript" uri="pkg:/components/common.brs"/>
+  <script type="text/brightscript" uri="pkg:/components/KeyPad.brs"/>
+</component>

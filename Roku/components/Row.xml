@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- a horizontal row of cards / live tiles / pills with its own focus + smooth scrolling -->
+<component name="Row" extends="Group">
+  <interface>
+    <field id="items" type="array" onChange="build"/>
+    <field id="index" type="integer" value="0"/>
+    <field id="focused" type="integer" alwaysNotify="true"/>
+    <field id="selected" type="integer" alwaysNotify="true"/>
+    <field id="optionsKey" type="integer" alwaysNotify="true"/>
+    <field id="padL" type="integer" value="110"/>
+    <field id="gap" type="integer" value="30"/>
+    <field id="zoom" type="float" value="1.05"/>
+    <field id="dark" type="boolean" value="false"/>
+    <function name="takeFocus"/>
+    <function name="setItem"/>
+    <function name="count"/>
+    <function name="blurRow"/>
+  </interface>
+  <script type="text/brightscript" uri="pkg:/components/common.brs"/>
+  <script type="text/brightscript" uri="pkg:/components/Row.brs"/>
+</component>

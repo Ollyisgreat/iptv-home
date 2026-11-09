@@ -1,0 +1,9 @@
+# build output
+TVHome/.gradle/
+TVHome/build/
+TVHome/app/build/
+TVHome/local.properties
+*.apk
+# packaged downloads and screenshots
+/*.zip
+/*.png
